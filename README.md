@@ -36,3 +36,4 @@ python3 -m http.server 8000
 1. Push this folder to a GitHub repo.
 2. Repo → Settings → Pages → Source: `main` branch, `/ (root)`.
 3. Your card goes live at `https://<username>.github.io/<repo>/`.
+# dvc
