@@ -1,4 +1,4 @@
-# Apex Property Hub — Digital Visiting Card
+# SkyShree Realty — Digital Visiting Card
 
 Static site (HTML/CSS/JS). Works on GitHub Pages.
 

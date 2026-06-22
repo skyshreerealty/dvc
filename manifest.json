@@ -1,7 +1,7 @@
 {
-  "name": "Apex Property Hub",
-  "short_name": "Apex Property",
-  "description": "Apex Property Hub — Real Estate Consultant in Ahmedabad. Buy, Sell, Rent, Invest.",
+  "name": "SkyShree Realty",
+  "short_name": "SkyShree",
+  "description": "SkyShree Realty — Real Estate Consultant in Ahmedabad. Buy, Sell, Rent, Invest.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

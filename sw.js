@@ -1,7 +1,7 @@
-/* Apex Property Hub — minimal service worker for installability + offline shell.
+/* SkyShree Realty — minimal service worker for installability + offline shell.
    Uses NETWORK-FIRST so the latest files always load when online; the cache is
    only an offline fallback. Bump CACHE_VERSION to clear old caches. */
-const CACHE_VERSION = "apex-v2";
+const CACHE_VERSION = "skyshree-v1";
 const CORE_ASSETS = [
   "./",
   "index.html",

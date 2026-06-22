@@ -1,4 +1,4 @@
-/* ===== Apex Property Hub — Digital Visiting Card ===== */
+/* ===== SkyShree Realty — Digital Visiting Card ===== */
 
 /* Google Apps Script Web App URL (the .../exec link) — used for both
    inquiries and feedback. The script routes by the payload's "form" field. */
@@ -7,8 +7,8 @@ const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbwrBmv4BmDFiL8-0o
 /* ---------- 1. Animated view counter ---------- */
 (function () {
   // persist a view count in localStorage so it grows each visit (starts at 0)
-  let views = parseInt(localStorage.getItem("apexViews_v2") || "0", 10) + 1;
-  localStorage.setItem("apexViews_v2", views);
+  let views = parseInt(localStorage.getItem("skyshreeViews_v1") || "0", 10) + 1;
+  localStorage.setItem("skyshreeViews_v1", views);
 
   const el = document.getElementById("viewCount");
   let n = Math.max(0, views - 120);
@@ -320,12 +320,12 @@ function buildVCard({ name, role, phone }) {
     "VERSION:3.0",
     "N:" + name + ";;;;",
     "FN:" + name,
-    "ORG:Apex Property Hub",
+    "ORG:SkyShree Realty",
     "TITLE:" + (role || ""),
     "TEL;TYPE=CELL:" + phone,
-    "EMAIL:apexpropertyhub1@gmail.com",
+    "EMAIL:skyshreerealty@gmail.com",
     "ADR;TYPE=WORK:;;B-405 Time Square 2, Near Avlon Hotel, Thaltej;Ahmedabad;Gujarat;380054;India",
-    "URL:https://apexpropertyhub.github.io/dvc/",
+    "URL:https://skyshreerealty.github.io/dvc/",
     "END:VCARD",
   ].join("\r\n");
 }
@@ -512,7 +512,7 @@ document.getElementById("shareForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const num = document.getElementById("shareNumber").value.trim();
   if (!/^\d{10}$/.test(num)) return alert("Please enter a valid 10-digit mobile number.");
-  const msg = encodeURIComponent("Check out Apex Property Hub digital card: " + window.location.href);
+  const msg = encodeURIComponent("Check out SkyShree Realty digital card: " + window.location.href);
   window.open(`https://wa.me/91${num}?text=${msg}`, "_blank");
 });
 
