@@ -37,6 +37,23 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;700&family=Playfair+Display+SC:wght@400;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS (Play CDN). Preflight (Tailwind's reset) is turned OFF so
+       Tailwind utility classes layer on top of the custom design in style.css
+       without overriding it. Brand colors are exposed as `brand` / `brand-dark`. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          colors: { brand: "#1b9dd9", "brand-dark": "#1483b8", teal: "#16a394" },
+          boxShadow: { brand: "0 10px 24px rgba(27,157,217,.25)" },
+        },
+      },
+    };
+  </script>
+
   <link rel="stylesheet" href="style.css?v=4" />
 </head>
 
@@ -154,7 +171,9 @@
             </div>
             <div class="person-actions">
               <a class="person-phone" href="tel:+919979018989">+91 9979018989</a>
-              <button type="button" class="save-contact-btn"><i class="fa-solid fa-address-card"></i> Save
+              <button type="button"
+                class="save-contact-btn transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:scale-95"><i
+                  class="fa-solid fa-address-card"></i> Save
                 Contact</button>
             </div>
           </div>
@@ -166,7 +185,9 @@
             </div>
             <div class="person-actions">
               <a class="person-phone" href="tel:+918460205711">+91 8460205711</a>
-              <button type="button" class="save-contact-btn"><i class="fa-solid fa-address-card"></i> Save
+              <button type="button"
+                class="save-contact-btn transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:scale-95"><i
+                  class="fa-solid fa-address-card"></i> Save
                 Contact</button>
             </div>
           </div>
@@ -188,10 +209,12 @@
       </div>
 
       <div class="action-btns">
-        <a href="https://maps.app.goo.gl/HUoBiww28G4ZYDab7" target="_blank" class="pill"><i
+        <a href="https://maps.app.goo.gl/HUoBiww28G4ZYDab7" target="_blank"
+          class="pill transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-brand"><i
             class="fa-solid fa-location-dot"></i> Direction</a>
         <a href="https://mail.google.com/mail/?view=cm&to=skyshreerealty@gmail.com" target="_blank" rel="noopener"
-          class="pill"><i class="fa-solid fa-envelope"></i> Mail</a>
+          class="pill transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-brand"><i
+            class="fa-solid fa-envelope"></i> Mail</a>
       </div>
 
       <div class="contact-wave">
@@ -211,7 +234,9 @@
         <form class="share-form" id="shareForm">
           <span class="cc">+91</span>
           <input type="tel" id="shareNumber" placeholder="Enter mobile number" maxlength="10" />
-          <button type="submit"><i class="fa-brands fa-whatsapp"></i> Share on Whatsapp</button>
+          <button type="submit"
+            class="transition-all duration-200 ease-out hover:brightness-110 hover:-translate-y-0.5 active:scale-95"><i
+              class="fa-brands fa-whatsapp"></i> Share on Whatsapp</button>
         </form>
 
         <!-- Social media. Replace the href="#" values with your real profile URLs. -->
@@ -360,7 +385,9 @@
           </div>
           <input type="text" id="fbName" placeholder="Enter Full Name" required />
           <textarea id="fbText" placeholder="Enter your feedback" required></textarea>
-          <button type="submit">Give Feedback</button>
+          <button type="submit"
+            class="transition-all duration-200 ease-out hover:brightness-110 hover:-translate-y-0.5 active:scale-95">Give
+            Feedback</button>
         </form>
       </div>
     </section>
@@ -388,7 +415,8 @@
           <div id="inqCategoryOptions"></div>
         </div>
         <textarea id="inqMessage" placeholder="Enter Message"></textarea>
-        <button type="submit" id="inqSubmitBtn">Send</button>
+        <button type="submit" id="inqSubmitBtn"
+          class="transition-all duration-200 ease-out hover:brightness-110 hover:-translate-y-0.5 active:scale-95">Send</button>
       </form>
     </section>
 
