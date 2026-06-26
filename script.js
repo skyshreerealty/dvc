@@ -30,6 +30,13 @@ const brochureList = document.getElementById("brochureList");
 const BROCHURES_PER_PAGE = 5;
 let allBrochures = [];
 let brochurePage = 1;
+let brochureFilter = "all"; // "all" | Commercial | Residential
+
+// Brochures matching the active filter.
+function filteredBrochures() {
+  if (brochureFilter === "all") return allBrochures;
+  return allBrochures.filter((b) => b.category === brochureFilter);
+}
 
 // Pagination controls, inserted right after the list.
 const brochurePagination = document.createElement("div");
@@ -38,14 +45,16 @@ brochureList.insertAdjacentElement("afterend", brochurePagination);
 
 function renderBrochures() {
   brochureList.innerHTML = "";
-  if (!allBrochures.length) {
-    brochureList.innerHTML = `<p style="font-size:14px;color:#6b7280">No brochures available yet.</p>`;
+  const list = filteredBrochures();
+  if (!list.length) {
+    const msg = allBrochures.length ? "No brochures match this filter." : "No brochures available yet.";
+    brochureList.innerHTML = `<p style="font-size:14px;color:#6b7280">${msg}</p>`;
     brochurePagination.innerHTML = "";
     return;
   }
 
   const start = (brochurePage - 1) * BROCHURES_PER_PAGE;
-  allBrochures.slice(start, start + BROCHURES_PER_PAGE).forEach(({ title, file }) => {
+  list.slice(start, start + BROCHURES_PER_PAGE).forEach(({ title, file }) => {
     const url = "brochures/" + file;
     const row = document.createElement("div");
     row.className = "brochure-item";
@@ -62,7 +71,7 @@ function renderBrochures() {
 }
 
 function renderBrochurePagination() {
-  const pageCount = Math.ceil(allBrochures.length / BROCHURES_PER_PAGE);
+  const pageCount = Math.ceil(filteredBrochures().length / BROCHURES_PER_PAGE);
   brochurePagination.innerHTML = "";
   if (pageCount <= 1) return;
 
@@ -105,6 +114,17 @@ fetch("brochures/brochures.json", { cache: "no-store" })
       `<p style="font-size:14px;color:#6b7280">Could not load brochures. ` +
       `Make sure brochures/brochures.json exists.</p>`;
   });
+
+// Filter buttons: pick a filter, reset to page 1, re-render.
+document.querySelectorAll("#brochureFilters .filter-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#brochureFilters .filter-btn").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    brochureFilter = btn.dataset.filter;
+    brochurePage = 1;
+    renderBrochures();
+  });
+});
 
 /* ---------- 3. Gallery ----------
    Property photos live in the /gallery folder. To add a new one:

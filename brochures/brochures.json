@@ -1,42 +1,113 @@
 [
   {
     "title": "ZADE SBR",
-    "file": "COMMERCIAL AT SBR BY ZADE GROUP.pdf"
+    "file": "COMMERCIAL AT SBR BY ZADE GROUP.pdf",
+    "category": "Commercial"
   },
   {
     "title": "Z NORTHFACE",
-    "file": "Z Northface.pdf"
+    "file": "Z Northface.pdf",
+    "category": "Commercial"
   },
   {
     "title": "Z-STONE",
-    "file": "Z-Stone.pdf"
+    "file": "Z-Stone.pdf",
+    "category": "Commercial"
   },
   {
     "title": "Z2 BROCHURE",
-    "file": "Z2 Brochure.pdf"
+    "file": "Z2 Brochure.pdf",
+    "category": "Commercial"
   },
   {
     "title": "ZION CONNECT",
-    "file": "Zion Connect.pdf"
+    "file": "Zion Connect.pdf",
+    "category": "Commercial"
   },
   {
     "title": "Z LUXURIA BROCHURE",
-    "file": "Z LUXURIA_BROCHURE.pdf"
+    "file": "Z LUXURIA_BROCHURE.pdf",
+    "category": "Residential"
   },
   {
     "title": "The Line by Super",
-    "file": "PROPOSED 4 & 5 BHK RESIDENTIAL ICONIC PROJECT @ SCIENCE PARK.pdf"
+    "file": "PROPOSED 4 & 5 BHK RESIDENTIAL ICONIC PROJECT @ SCIENCE PARK.pdf",
+    "category": "Residential"
   },
   {
     "title": "SHAYONA",
-    "file": "SHAYONA_ALL FLOOR PLANS_18.04.2026_.pdf"
+    "file": "SHAYONA_ALL FLOOR PLANS_18.04.2026_.pdf",
+    "category": "Residential"
   },
   {
     "title": "SHAYONA ICON",
-    "file": "Shayona Icon .pdf"
+    "file": "Shayona Icon .pdf",
+    "category": "Residential"
   },
   {
     "title": "SHAYONA SARVOPARI",
-    "file": "Shayona Sarvopari Residential_Brochure.pdf"
-  }
+    "file": "Shayona Sarvopari Residential_Brochure.pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "VIBURNUM 4BHK",
+    "file": "4bhk Viburnum.pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "BROOKSTONE",
+    "file": "Brookstone Brochure.pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "KALAV SKYLINE",
+    "file": "Final Kalav Skyline_Brochure.pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "KALAV MONTANA",
+    "file": "KALAV MONTANA-3.pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "KAUTILYA",
+    "file": "Kautilya Two20_Main Brochure_06-5a8131a1-c600-417c-989b-6b8a947f88bf.pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "PRAGATYA",
+    "file": "Pragatya Brocher.pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "SHAKTI EXALT",
+    "file": "Shakti Exalt Brochure 06.pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "SHILAJ SKY",
+    "file": "Shilaj_Sky Brochure .pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "SIDDHIVINAYAK PROSPERA",
+    "file": "Siddhivinayak Prospera (2).pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "SILVER BROOK 2",
+    "file": "silver brook 2.pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "THE EMPYREAN",
+    "file": "THE EMPYREAN.pdf",
+    "category": "Residential"
+  },
+  {
+    "title": "VIBURNUM",
+    "file": "viburnumbrochure.pdf",
+    "category": "Residential"
+  },
+
 ]
