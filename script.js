@@ -377,7 +377,66 @@ document.querySelectorAll(".person .save-contact-btn").forEach((btn) => {
 // Built-in sample testimonials shown by default. Feedback submitted by
 // visitors is stored in the Google Sheet and loaded on top of these.
 const seedFeedbacks = [
-  
+  {
+    name: "Rohit Patel",
+    date: "Jun 14, 2026",
+    rating: 5,
+    text: "Bought my first 3 BHK flat in Thaltej through SkyShree Realty. Parth bhai understood exactly what we needed and never pushed us. Smooth paperwork and honest guidance throughout.",
+  },
+  {
+    name: "Sneha Desai",
+    date: "May 28, 2026",
+    rating: 5,
+    text: "Very professional team. They showed us multiple options within our budget and were patient with all our questions. Highly recommend for anyone looking to buy in Ahmedabad.",
+  },
+  {
+    name: "Amit Shah",
+    date: "May 09, 2026",
+    rating: 5,
+    text: "Got a great commercial office space on SG Highway for my new firm. Uttam handled the negotiation and lease formalities perfectly. Trustworthy and transparent dealing.",
+  },
+  {
+    name: "Priya Mehta",
+    date: "Apr 22, 2026",
+    rating: 4,
+    text: "Helped us rent a 2 BHK quickly when we relocated to Ahmedabad. Responsive on calls and arranged the site visit the same day. Good experience overall.",
+  },
+  {
+    name: "Kalpesh Trivedi",
+    date: "Apr 03, 2026",
+    rating: 5,
+    text: "Invested in a residential plot through them. They gave clear documentation and verified everything before we paid a single rupee. Genuine real estate consultants.",
+  },
+  {
+    name: "Nidhi Joshi",
+    date: "Mar 18, 2026",
+    rating: 5,
+    text: "What I liked most is the honesty. They told us the real pros and cons of each property instead of just trying to close the deal. Will surely deal with them again.",
+  },
+  {
+    name: "Hardik Prajapati",
+    date: "Mar 02, 2026",
+    rating: 4,
+    text: "Sold my old flat at a fair price with their help. The whole process was handled smoothly and they kept me updated at every step. Thank you SkyShree.",
+  },
+  {
+    name: "Riya Sharma",
+    date: "Feb 16, 2026",
+    rating: 5,
+    text: "Excellent service and very polite team. They understood our requirement for a family home and showed only relevant properties. Saved us a lot of time.",
+  },
+  {
+    name: "Manish Patel",
+    date: "Jan 27, 2026",
+    rating: 5,
+    text: "Reliable and knowledgeable about the Ahmedabad market. Got a good return on my commercial investment thanks to their advice. Truly client-focused.",
+  },
+  {
+    name: "Ananya Iyer",
+    date: "Jan 11, 2026",
+    rating: 5,
+    text: "From the first call to handing over the keys, everything was transparent. No hidden charges, no false promises. A genuine and dependable real estate partner.",
+  },
 ];
 let feedbacks = [...seedFeedbacks];
 
