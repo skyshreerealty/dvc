@@ -403,3 +403,70 @@ body{background:linear-gradient(160deg,#eef2f6 0%,#e4eef5 100%)}
 }
 .socials a:hover{background:#fff;color:var(--wave);transform:translateY(-2px)}
 
+/* ============ scroll reveal animations ============ */
+/* Sections start slightly down & faded, then ease into place when they
+   enter the viewport (toggled by the IntersectionObserver in script.js). */
+.reveal{
+  opacity:0;
+  transform:translateY(34px);
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1),
+             transform .7s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity,transform;
+}
+.reveal.in-view{
+  opacity:1;
+  transform:none;
+}
+
+/* Stagger child cards/items so they cascade in one after another. */
+.reveal.in-view .brochure-item,
+.reveal.in-view .property-card,
+.reveal.in-view .feedback-item,
+.reveal.in-view .gallery-grid img,
+.reveal.in-view .person,
+.reveal.in-view .hex{
+  animation:rise .55s both;
+}
+.reveal.in-view .brochure-item:nth-child(2),
+.reveal.in-view .property-card:nth-child(2),
+.reveal.in-view .feedback-item:nth-child(2),
+.reveal.in-view .gallery-grid img:nth-child(2),
+.reveal.in-view .person:nth-child(2),
+.reveal.in-view .hex:nth-child(2){animation-delay:.08s}
+.reveal.in-view .brochure-item:nth-child(3),
+.reveal.in-view .property-card:nth-child(3),
+.reveal.in-view .feedback-item:nth-child(3),
+.reveal.in-view .gallery-grid img:nth-child(3),
+.reveal.in-view .person:nth-child(3),
+.reveal.in-view .hex:nth-child(3){animation-delay:.16s}
+.reveal.in-view .brochure-item:nth-child(4),
+.reveal.in-view .property-card:nth-child(4),
+.reveal.in-view .feedback-item:nth-child(4),
+.reveal.in-view .gallery-grid img:nth-child(4),
+.reveal.in-view .hex:nth-child(4){animation-delay:.24s}
+.reveal.in-view .brochure-item:nth-child(5),
+.reveal.in-view .property-card:nth-child(5),
+.reveal.in-view .feedback-item:nth-child(5),
+.reveal.in-view .gallery-grid img:nth-child(5){animation-delay:.32s}
+
+@keyframes rise{
+  from{opacity:0;transform:translateY(20px) scale(.98)}
+  to{opacity:1;transform:none}
+}
+
+/* Lift cards a touch on hover for an interactive, polished feel. */
+.brochure-item,.property-card,.feedback-item{
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.brochure-item:hover,.property-card:hover,.feedback-item:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 24px rgba(27,157,217,.12);
+}
+
+/* Respect users who prefer reduced motion — no animations for them. */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .reveal.in-view *{animation:none !important}
+}
+

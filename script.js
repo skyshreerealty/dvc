@@ -683,6 +683,33 @@ const observer = new IntersectionObserver(
     if (sec) observer.observe(sec);
   });
 
+/* ---------- 9b. Scroll-reveal animations ----------
+   Each section fades + slides into view as it scrolls into the viewport,
+   with its inner cards cascading in. Adds an "awesome", smooth feel. */
+(function () {
+  const sections = document.querySelectorAll(".card .section");
+  sections.forEach((s) => s.classList.add("reveal"));
+
+  // If the browser can't observe, just show everything.
+  if (!("IntersectionObserver" in window)) {
+    sections.forEach((s) => s.classList.add("in-view"));
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.classList.add("in-view");
+          obs.unobserve(en.target); // animate once, then stop watching
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+  );
+  sections.forEach((s) => revealObserver.observe(s));
+})();
+
 /* ---------- 10. PWA service worker (Add to Home Screen) ---------- */
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
