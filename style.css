@@ -463,10 +463,61 @@ body{background:linear-gradient(160deg,#eef2f6 0%,#e4eef5 100%)}
   box-shadow:0 10px 24px rgba(27,157,217,.12);
 }
 
+/* ============ hero entrance & ambient animations ============ */
+
+/* Logo fades + scales in on load, then gently floats forever. */
+.logo-box{animation:logoIn .8s cubic-bezier(.22,.61,.36,1) both}
+.logo-box svg{animation:float 5s ease-in-out infinite}
+@keyframes logoIn{from{opacity:0;transform:scale(.9) translateY(10px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* Company name, tagline and divider rise in one after another. */
+.company-name{animation:riseFade .7s ease-out both;animation-delay:.15s}
+.company-tagline{animation:riseFade .7s ease-out both;animation-delay:.3s}
+.title-divider{animation:growLine .7s ease-out both;animation-delay:.45s;transform-origin:center}
+@keyframes riseFade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes growLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* Section-title underline draws itself in when the section is revealed. */
+.section-title::after{transition:width .6s ease .15s}
+.reveal .section-title::after{width:0}
+.reveal.in-view .section-title::after{width:46px}
+
+/* Pulsing ring on the floating WhatsApp button to draw the eye. */
+.wa-float::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  box-shadow:0 0 0 0 rgba(37,211,102,.5);
+  animation:waPulse 2.2s ease-out infinite;
+  pointer-events:none;
+}
+@keyframes waPulse{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}
+  70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}
+  100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+}
+
+/* Views badge softly glows. */
+.views{animation:viewsGlow 3.2s ease-in-out infinite}
+@keyframes viewsGlow{
+  0%,100%{box-shadow:0 4px 12px rgba(76,182,224,.35)}
+  50%{box-shadow:0 4px 20px rgba(76,182,224,.6)}
+}
+
+/* Stars pop when you hover the rating picker. */
+.rating i{transition:transform .15s ease}
+.rating i:hover{transform:scale(1.3)}
+
+/* Active bottom-nav icon gives a little pop when selected. */
+.nav-item.active i{animation:navPop .35s ease}
+@keyframes navPop{0%{transform:scale(1)}50%{transform:scale(1.28)}100%{transform:scale(1)}}
+
 /* Respect users who prefer reduced motion — no animations for them. */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
   .reveal.in-view *{animation:none !important}
+  .logo-box,.logo-box svg,.company-name,.company-tagline,.title-divider,
+  .views,.nav-item.active i{animation:none !important;opacity:1;transform:none}
+  .wa-float::after{animation:none !important}
 }
 
