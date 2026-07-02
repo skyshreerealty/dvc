@@ -4,21 +4,44 @@
    inquiries and feedback. The script routes by the payload's "form" field. */
 const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbwrBmv4BmDFiL8-0orQJR-9azKeXqJN-ENxWOQgGVVim6JzB3vwCFuhXp1MWL_jkb1HLA/exec";
 
-/* ---------- 1. Animated view counter ---------- */
+/* ---------- 1. Animated view counter ----------
+   Total views across ALL devices, stored in a shared server-side counter
+   (Abacus, a free hit-counter API). Each page load increments the global
+   total. Falls back to a per-device localStorage count if the API is
+   unreachable, so the number always shows something. */
 (function () {
-  // persist a view count in localStorage so it grows each visit (starts at 0)
-  let views = parseInt(localStorage.getItem("skyshreeViews_v1") || "0", 10) + 1;
-  localStorage.setItem("skyshreeViews_v1", views);
-
   const el = document.getElementById("viewCount");
-  let n = Math.max(0, views - 120);
-  const step = () => {
-    n += Math.ceil((views - n) / 12);
-    if (n >= views) n = views;
-    el.textContent = n.toLocaleString();
-    if (n < views) requestAnimationFrame(step);
-  };
-  step();
+  if (!el) return;
+
+  // Change this namespace/key only if you want to reset the global count.
+  const COUNTER_URL = "https://abacus.jasoncameron.dev/hit/skyshreerealty-dvc/total-views";
+
+  // Count-up animation from a slightly lower number to the real total.
+  function animateTo(total) {
+    let n = Math.max(0, total - 120);
+    const step = () => {
+      n += Math.ceil((total - n) / 12);
+      if (n >= total) n = total;
+      el.textContent = n.toLocaleString();
+      if (n < total) requestAnimationFrame(step);
+    };
+    step();
+  }
+
+  fetch(COUNTER_URL, { cache: "no-store" })
+    .then((r) => r.json())
+    .then((d) => {
+      const total = Number(d && d.value);
+      if (!isFinite(total)) throw new Error("invalid count");
+      localStorage.setItem("skyshreeViews_v1", String(total)); // cache last known total
+      animateTo(total);
+    })
+    .catch(() => {
+      // Offline / API down: fall back to a per-device counter.
+      const views = parseInt(localStorage.getItem("skyshreeViews_v1") || "0", 10) + 1;
+      localStorage.setItem("skyshreeViews_v1", String(views));
+      animateTo(views);
+    });
 })();
 
 /* ---------- 2. Brochures ----------
